@@ -5,6 +5,10 @@ RebTags provides a easy way to rebuild your tags file based on your project
 directory. It uses the repository directories (:code:`.git`, :code:`.hg`, :code:`_darcs`...) as
 markers or a :code:`.ctags` configuration file to find where must build the tags file.
 
+**IMPORTANT NOTE**: Take care with your :code:`.ctags` configuration and the
+:code:`g:rebtags_extra_arguments` setting to no scan the generated tags file,
+can enter in an infinite loop.
+
 Configuration
 -------------
 
