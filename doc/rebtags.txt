@@ -1,0 +1,81 @@
+*rebtags.txt*	Version 0.1.  Last change: 2013 Mar 31
+
+==============================================================================
+CONTENTS                                                 *rebtags-contents*
+
+    1. Introduction ....................... |rebtags-introduction|
+    2. Configuration ...................... |rebtags-configuration|
+    3. Usage .............................. |rebtags-usage|
+    4. License ............................ |rebtags-license|
+    5. Contributing ....................... |rebtags-contributing|
+    6. Credits ............................ |rebtags-credits|
+
+==============================================================================
+1. Introduction                              *rebtags* *rebtags-introduction*
+
+RebTags provides a easy way to rebuild your tags file based on your project
+directory. It uses the repository directories (.git, .hg, _darcs...) as
+markers or a .ctags configuration file to find where must build the tags file.
+
+==============================================================================
+2. Configuration                                    *rebtags-configuration*
+
+To configure your tags building you can write a .ctags (or the file in your
+|g:rebtags_ctags_config_file| variable) configuration file with one ctags
+parameter per line in the root directory of your project.
+
+                                                 *'g:rebtags_root_markers'*
+Use this to set your own root markers as replacement to the default ones
+(.git, .hg, .svn, .bzr, _darcs and .ctags): >
+    let g:rebtags_root_markers = ['.git', '.project']
+<
+
+                                                *'g:rebtags_ctags_command'*
+Use this to define which ctags command you want to use (the default one is
+ctags): >
+    let g:rebtags_ctags_command = 'ectags'
+<
+
+                                            *'g:rebtags_ctags_config_file'*
+Use this to define which filename has the ctags configuration (the default one
+is .ctags): >
+    let g:rebtags_ctags_config_file = '.project_ctags'
+<
+
+                                              *'g:rebtags_extra_arguments'*
+Use this to define extra parameters to your ctags command (the default value
+is no extra parameters): >
+    let g:rebtags_extra_arguments = '--python-kinds --languages=python'
+<
+
+==============================================================================
+3. Usage                                                    *rebtags-usage*
+
+To rebuild your tags you have to run the command :RebuildTags
+
+You can map it as usual, for example: >
+    map <F6> <Esc>:RebuildTags<CR>
+<
+
+==============================================================================
+4. License                                                *rebtags-license*
+
+This plugin is placed in the public domain.
+
+==============================================================================
+5. Contributing                                      *rebtags-contributing*
+
+If you experience any bugs or have feature requests, please open an issue on
+GitHub. Fork the source repository on GitHub and send a pull request if you
+have any code improvements.
+
+Author: Jesús Espino <jespinog@gmail.com>
+Source repository: https://github.com/jespino/vim-rebtags
+
+==============================================================================
+6. Credits                                                *rebtags-credits*
+
+- Jesús Espino: initial developer
+
+==============================================================================
+vim:tw=78:sw=4:ts=8:ft=help:norl:
