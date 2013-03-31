@@ -30,4 +30,12 @@ if !exists('g:rebtags_ctags_config_file')
     let g:rebtags_ctags_config_file = '.ctags'
 endif
 
+if !exists('g:rebtags_auto_add_project_tags')
+    let g:rebtags_add_my_project_tags = 1
+endif
+
+if g:rebtags_auto_add_project_tags
+    call rebtags#AutoAddProjectTags()
+endif
+
 command! -nargs=0 RebuildTags call rebtags#RebuildTags()

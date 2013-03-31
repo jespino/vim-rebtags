@@ -33,6 +33,32 @@ except Exception, e:
 EOF
 endfunction
 
+function! s:AutoAddProjectTags()
+python << EOF
+import vim
+import os
+try:
+    working_directory = os.path.abspath(os.getcwd())
+    root_markers = vim.eval('g:rebtags_root_markers')
+    finished = False
+    while working_directory != "/" and finished == False:
+        for marker in root_markers:
+            marker_file = os.path.join(working_directory, marker)
+            if os.path.exists(marker_file):
+                tags_file = os.path.join(working_directory, 'tags')
+                vim.command('set tags+=%s' % tags_file)
+                finished = True
+                break
+        working_directory = os.path.dirname(working_directory)
+except Exception, e:
+    print e
+EOF
+endfunction
+
 function! rebtags#RebuildTags()
     call s:RebuildTags()
+endfunction
+
+function! rebtags#AutoAddProjectTags()
+    call s:AutoAddProjectTags()
 endfunction
