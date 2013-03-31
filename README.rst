@@ -36,6 +36,12 @@ Use this to define extra parameters to your ctags command (the default value
 is no extra parameters)::
   let g:rebtags_extra_arguments = '--python-kinds --languages=python'
 
+g:rebtags_auto_add_project_tags
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Use this to define enable or disable the automatically add of the generated
+tags file to the tags setting of the vim (the default value is 1)::
+  let g:rebtags_auto_add_project_tags = 0
+
 Usage
 -----
 
