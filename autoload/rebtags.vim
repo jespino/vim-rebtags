@@ -6,8 +6,7 @@
 
 function! s:GetProjectRootPath(root_directory)
 python << EOF
-import vim
-import os
+import vim import os
 try:
     working_directory = os.path.abspath(os.getcwd())
     root_markers = vim.eval('g:rebtags_root_markers')
@@ -53,7 +52,6 @@ import vim
 import os
 try:
     root_directory = vim.bindeval('a:root_directory')
-    root_markers = vim.eval('g:rebtags_root_markers')
     tags_file = os.path.join(root_directory[0], 'tags')
     vim.command('set tags+=%s' % tags_file)
 except Exception, e:
