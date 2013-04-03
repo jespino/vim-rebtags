@@ -6,10 +6,10 @@
 
 python << EOF
 import sys
-import os
 import vim
 sys.path.append(vim.eval('expand("<sfile>:p:h")'))
-import rebtags
+from rebtags import RebTags
+rebtags = RebTags()
 EOF
 
 function! s:RebuildTags()
